@@ -1,0 +1,23 @@
+{
+    "name": "actinity/sanitiser",
+    "description": "A simple email sanitiser to clean up common input errors",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kieran Ashley",
+            "email": "kieran@actinity.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Actinity\\Sanitiser\\": "src/"
+        }
+    }
+}
