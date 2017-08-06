@@ -15,16 +15,16 @@ class ParseColumnsTest extends TestCase
     public function testASimpleAddress()
     {
         $this->assertEquals(
-            "test@dell.com",
-            $this->clean("test@dell.com")
+            "test@example.com",
+            $this->clean("test@example.com")
         );
     }
 
     public function testARegularAddress()
     {
         $this->assertEquals(
-            'Kieran.Ashley_Fella@actinity-test.example.com',
-            $this->clean("Kieran.Ashley_Fella@actinity-test.example.com")
+            'Jimmy.Ramone_Sinatra@actinity-test.example.com',
+            $this->clean("Jimmy.Ramone_Sinatra@actinity-test.example.com")
         );
     }
 
@@ -34,8 +34,8 @@ class ParseColumnsTest extends TestCase
     public function testCharacters()
     {
         $this->assertEquals(
-            "Test.NAME12@dell.com",
-            $this->clean("Test.NAME12@dell.com")
+            "Test.NAME12@example.com",
+            $this->clean("Test.NAME12@example.com")
         );
 
     }
@@ -43,16 +43,16 @@ class ParseColumnsTest extends TestCase
     public function testWithWhitespace()
     {
         $this->assertEquals(
-            "test@dell.com",
-            $this->clean("test@dell.com ")
+            "test@example.com",
+            $this->clean("test@example.com ")
         );
     }
 
     public function testTrailingSemiColon()
     {
         $this->assertEquals(
-            "test@dell.com",
-            $this->clean("test@dell.com;")
+            "test@example.com",
+            $this->clean("test@example.com;")
         );
     }
 
@@ -62,85 +62,85 @@ class ParseColumnsTest extends TestCase
     public function testTrailingFullStop()
     {
         $this->assertEquals(
-            "test@dell.com",
-            $this->clean("test@dell.com.")
+            "test@example.com",
+            $this->clean("test@example.com.")
         );
     }
 
     public function testTrailingComma()
     {
         $this->assertEquals(
-            "test@dell.com",
-            $this->clean("test@dell.com,")
+            "test@example.com",
+            $this->clean("test@example.com,")
         );
     }
 
     public function testWrappedBraces()
     {
         $this->assertEquals(
-            "test@dell.com",
-            $this->clean("<test@dell.com>")
+            "test@example.com",
+            $this->clean("<test@example.com>")
         );
     }
 
     public function testWrappedBrackets()
     {
         $this->assertEquals(
-            "test@dell.com",
-            $this->clean("(test@dell.com)")
+            "test@example.com",
+            $this->clean("(test@example.com)")
         );
     }
 
     public function testWrappedSquares()
     {
         $this->assertEquals(
-            "test@dell.com",
-            $this->clean("[test@dell.com]")
+            "test@example.com",
+            $this->clean("[test@example.com]")
         );
     }
 
     public function testNameWithBraces()
     {
         $this->assertEquals(
-            "test@dell.com",
-            $this->clean("Test Man <test@dell.com>")
+            "test@example.com",
+            $this->clean("Test Man <test@example.com>")
         );
     }
 
     public function testMultipleAddresses()
     {
-        $this->assertFalse($this->clean("test@dell.com address2@dell.com"));
+        $this->assertFalse($this->clean("test@example.com address2@example.com"));
     }
 
     public function testWrappedQuotes()
     {
         $this->assertEquals(
-            "test@dell.com",
-            $this->clean('"test@dell.com"')
+            "test@example.com",
+            $this->clean('"test@example.com"')
         );
     }
 
     public function testWrappedPrimes()
     {
         $this->assertEquals(
-            "test@dell.com",
-            $this->clean("'test@dell.com'")
+            "test@example.com",
+            $this->clean("'test@example.com'")
         );
     }
 
     public function testSafePrime()
     {
         $this->assertEquals(
-            "paolo.o'greco@dell.com",
-            $this->clean("paolo.o'greco@dell.com")
+            "pauly.o'greco@example.com",
+            $this->clean("pauly.o'greco@example.com")
         );
     }
 
     public function testWrappedPrimesWithInner()
     {
         $this->assertEquals(
-            "paolo.o'greco@dell.com",
-            $this->clean("'paolo.o'greco@dell.com'")
+            "pauly.o'greco@example.com",
+            $this->clean("'pauly.o'greco@example.com'")
         );
     }
 
@@ -148,8 +148,8 @@ class ParseColumnsTest extends TestCase
     public function testLeadingPrime()
     {
         $this->assertEquals(
-            "'paolo.o'greco@dell.com",
-            $this->clean("'paolo.o'greco@dell.com")
+            "'pauly.o'greco@example.com",
+            $this->clean("'pauly.o'greco@example.com")
         );
     }
 
@@ -182,7 +182,7 @@ class ParseColumnsTest extends TestCase
     {
         $this->assertEquals(
             "",
-            $this->clean("jon@dell")
+            $this->clean("jon@example")
         );
     }
 
@@ -190,7 +190,7 @@ class ParseColumnsTest extends TestCase
     {
         $this->assertEquals(
             "",
-            $this->clean("@dell.com")
+            $this->clean("@example.com")
         );
     }
 
@@ -198,15 +198,15 @@ class ParseColumnsTest extends TestCase
     {
         $this->assertEquals(
             "",
-            $this->clean("test.@dell.com")
+            $this->clean("test.@example.com")
         );
     }
 
     public function testMailToAddress()
     {
         $this->assertEquals(
-            "test@dell.com",
-            $this->clean("mailto:test@dell.com")
+            "test@example.com",
+            $this->clean("mailto:test@example.com")
         );
     }
 
@@ -217,7 +217,7 @@ class ParseColumnsTest extends TestCase
 
     public function testSingleDotUser()
     {
-        $this->assertFalse($this->clean(".@dell.com"));
+        $this->assertFalse($this->clean(".@example.com"));
     }
 
     public function testSingleDotDomain()
@@ -232,7 +232,7 @@ class ParseColumnsTest extends TestCase
 
     public function testDoubleDotUser()
     {
-        $this->assertFalse($this->clean("..@dell.com"));
+        $this->assertFalse($this->clean("..@example.com"));
     }
 
     public function testDoubleDotDomain()
@@ -263,7 +263,7 @@ class ParseColumnsTest extends TestCase
     public function testInvalidTLD()
     {
         $this->assertFalse(
-            $this->clean("harry@place.com<script")
+            $this->clean("harry@example.com<script")
         );
 
         $this->assertFalse(
