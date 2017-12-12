@@ -28,6 +28,33 @@ class ParseColumnsTest extends TestCase
         );
     }
 
+    public function testAMultipartDomain()
+    {
+        $this->assertEquals(
+            'test@actinity.co.uk',
+            $this->clean('test@actinity.co.uk')
+        );
+    }
+
+    public function testAMultipartDomainWithACom()
+    {
+        $this->assertEquals(
+            'test@actinity.com.uk',
+            $this->clean('test@actinity.com.uk')
+        );
+    }
+
+    /**
+     * @group whitespace
+     */
+    public function testWithWeirdWhitespace()
+    {
+        $this->assertEquals(
+            'test@actinity.com.uk',
+            $this->clean('test@actinity.com.uk  ')
+        );
+    }
+
     /**
      * @group chars
      */
