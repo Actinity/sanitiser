@@ -6,7 +6,7 @@ class Sanitiser
 
     public static function clean($input)
     {
-        $input = trim($input, " \t\n\r\0\x0B\xC2\xA0");
+        $input = trim($input, " \t\n\r\0\x0B\xC2\xA00\xE2\x80\x8B0\xC2\xAD");
 
         if (substr_count($input,"@") != 1) {
             return false;

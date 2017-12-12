@@ -47,11 +47,34 @@ class ParseColumnsTest extends TestCase
     /**
      * @group whitespace
      */
-    public function testWithWeirdWhitespace()
+    public function testWithNonBreakingWhitespace()
     {
         $this->assertEquals(
-            'test@actinity.com.uk',
-            $this->clean('test@actinity.com.uk  ')
+            'test@example.com',
+            $this->clean('test@example.com  ')
+        );
+    }
+
+    /**
+     * @group whitespace
+     */
+
+    public function testWithZeroWidthWhitespace()
+    {
+        $this->assertEquals(
+            'test@example.com',
+            $this->clean('test@example.com ​')
+        );
+    }
+
+    /**
+     * @group whitespace
+     */
+    public function testWithSoftHyphenWhitespace()
+    {
+        $this->assertEquals(
+            'test@example.com',
+            $this->clean('test@example.com­')
         );
     }
 
