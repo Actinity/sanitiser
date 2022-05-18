@@ -25,7 +25,7 @@ Catch and 'fix' a variety of common issues like:
 ### What it doesn't do
 
 - Verify that the email address/domain/mail server exists or will work, obviously. The only way to test an email address is to actually send to it. Anyone who tells you otherwise is selling something.
-- Work for every possible RFC compliant email - there are plenty of things you're technically allowed to do that no-one in the real-world actually does.
+- Work for every possible RFC compliant email - there are plenty of things you're technically allowed to do that you're not going to come across in the real world. e.g. `me@localhost`
 - Guarantee that it matches the user's intent (e.g. if there were multiple email addresses listed, it will only pick the first one. Is that correct? ¯\\_(ツ)_/¯)
 
 

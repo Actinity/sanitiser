@@ -205,8 +205,7 @@ class ParseColumnsTest extends TestCase
 
     public function testDumbString()
     {
-        $this->assertEquals(
-            "",
+        $this->assertFalse(
             $this->clean("adfaadfjaj")
         );
 
@@ -214,40 +213,35 @@ class ParseColumnsTest extends TestCase
 
     public function testASingleAtSymbol()
     {
-        $this->assertEquals(
-            "",
+        $this->assertFalse(
             $this->clean("@")
         );
     }
 
     public function testMissingDomain()
     {
-        $this->assertEquals(
-            "",
+        $this->assertFalse(
             $this->clean("jon@")
         );
     }
 
     public function testInvalidDomain()
     {
-        $this->assertEquals(
-            "",
+        $this->assertFalse(
             $this->clean("jon@example")
         );
     }
 
     public function testMissingUser()
     {
-        $this->assertEquals(
-            "",
+        $this->assertFalse(
             $this->clean("@example.com")
         );
     }
 
     public function testDotAtEndOfUser()
     {
-        $this->assertEquals(
-            "",
+        $this->assertFalse(
             $this->clean("test.@example.com")
         );
     }
