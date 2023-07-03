@@ -19,7 +19,6 @@ Catch and 'fix' a variety of common issues like:
 - Leading or trailing whitespace (including zero-widths)
 - Addresses wrapped in quotes or primes
 - Addresses wrapped in angle brackets (discarding anything else like a name)
-- Multiple email addresses in the same string (only the first will be kept)
 - Rejects obviously broken addresses like `test`, `test@`, `test@.` etc.
 
 ### What it doesn't do

@@ -67,6 +67,18 @@ class ParseColumnsTest extends TestCase
         );
     }
 
+	/**
+	 * @group whitespace
+	 */
+
+	public function testWithInlineWhitespace()
+	{
+		$this->assertEquals(
+			'test.user.email@example.com',
+			$this->clean('test. user .email@­example.​com')
+		);
+	}
+
     /**
      * @group whitespace
      */

@@ -39,6 +39,8 @@ class Sanitiser
             $input = substr($input,0,-1);
         }
 
+		$input = preg_replace("![\s\t\n\r\x0B\xC2\xA00\xE2\x80\x8B0\xC2\xAD]!","",$input);
+
         if (preg_match("!^[a-zA-Z0-9\.]+@[a-zA-Z0-9\.]+$!",$input)) {
             $test = strtolower(str_replace(".","",$input));
             if (preg_match("!^[a-z0-9]+@[a-z0-9]+$!",$test)) {
