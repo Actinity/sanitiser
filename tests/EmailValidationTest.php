@@ -338,5 +338,13 @@ class ParseColumnsTest extends TestCase
         );
     }
 
+    public function testDoubleZeroesArePreserved()
+    {
+        $this->assertEquals(
+            "harry001@example.com",
+            $this->clean("harry001@example.com")
+        );
+    }
+
 
 }
